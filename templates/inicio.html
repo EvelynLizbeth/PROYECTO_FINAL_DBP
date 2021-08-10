@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<hr class="mb-5 orange">
+
+<div class="col-md-12">
+        <hr>
+    <div class="card card-body" align="center">
+        <form action="/actualizar/{{ contactos.0 }}" method="POST">
+            <input class="col-md-8 form-control" type="text" name="dni" placeholder="Dni...."  value="{{ contactos.0 }}">
+            <input class="col-md-8 form-control" type="text" name="nombre" placeholder="Nombre..."  value="{{ contactos.1}}">
+            <input class="col-md-8 form-control" type="text" name="apellido" placeholder="Apellidos..."  value="{{ contactos.2}}">
+            <input class="col-md-8 form-control" type="text" name="telefono" placeholder="Telefono..." value="{{ contactos.3}}">
+            <input class="col-md-8 form-control" type="text" name="direccion" placeholder="Direccion..." value="{{ contactos.4}}">
+            <input class="col-md-8 form-control" type="text" name="email" placeholder="Email..." value="{{ contactos.5}}">
+            
+            <hr>
+            <div class="col-md-3 btn-group btn-group-justified">
+                    <button class="btn btn-primary" type="submit">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
