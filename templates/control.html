@@ -1,0 +1,71 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+    <!--Main layout-->
+    <main class="mt-5 pt-5">
+            <div class="container">
+
+
+<div class="row">
+    <div class="col-md-4">
+            <hr>
+        <div class="card card-body" align="center">
+            
+            <form action="/agregar" method="POST">
+               
+                <input  class="col-md-8 form-control" type="text" name="dni" placeholder="Dni....">
+                <input class="col-md-8 form-control" type="text" name="nombre" placeholder="Nombres....">
+                <input class="col-md-8 form-control" type="text" name="apellido" placeholder="Apellidos.....">
+                <input class="col-md-8 form-control" type="text" name="telefono" placeholder="Telefono">
+                <input class="col-md-8 form-control" type="text" name="direccion" placeholder="Direccion">
+                <input class="col-md-8 form-control" type="text" name="email" placeholder="Email">
+                <hr>
+                <div class="col-md-8 btn-group">
+                        <button class="btn btn-info" type="submit">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+            <hr>
+            
+        <table class="table table table-striped">
+            <thead> 
+                <tr class="text-center">
+                    <td><strong>Dni</strong></td>
+                    <td><strong>Nombres</strong></td>
+                    <td><strong>Apellidos</strong></td>
+                    <td><strong>Telefono</strong></td>
+                    <td><strong>Direccion</strong></td>
+                    <td><strong>Email</strong></td>
+                    <td><strong>Operaciones</strong></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+
+
+            <tbody>
+                {% for contactos in contactos%}
+                    <tr>
+                        <td>{{ contactos.0 }}</td>
+                        <td>{{ contactos.1 }}</td>
+                        <td>{{ contactos.2 }}</td>
+                        <td>{{ contactos.3 }}</td>
+                        <td>{{ contactos.4 }}</td>
+                        <td>{{ contactos.5 }}</td>
+
+                        <td class="col-md-2 btn-group">
+                            <a href="/editar/{{ contactos.0 }}" class="btn btn-outline-success">Editar</a>
+                            <a href="/eliminar/{{ contactos.0 }}" class="btn btn-outline-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
